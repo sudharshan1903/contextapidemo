@@ -1,38 +1,159 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.box {
   display: flex;
+  flex-wrap: wrap;
+}
+img{
+  width: 200px;
+  border-radius: 2px;
+}
+.cartHeader{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.cartItem{
+  position: relative;
+  width: 200px;
+  background: #c0c0c0;
+  box-shadow:  10px 10px 10px #a3a3a3;
+  border: 1px solid #ccc;
+  padding: 12px 12px 45px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 12px;
+  color: #222;
+}
+.total{
+  width: 200px;
+  padding: 12px 12px 45px;
+  margin: 10px;
+  border: none;
+  border-radius: 2px;
+  color: #000000;
+  background: #80ffff;
+box-shadow:  10px 10px 10px #6dd9d9;
+}
+.navbar{
+  display: flex;
+  padding: 10px 5px;
+  justify-content: flex-end;
+  background: #000000;
+  color: #ffffff;
+}
+
+.cart{
+  padding: 5px 10px;
+  border: none;
+  border-radius: 2px;
+  color: #ffffff;
+  cursor: pointer;
+  background-color: #40c9ff;
+}
+.btnAdd{
+  position: absolute;
+  border: #000000;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #000000;
+  
+  padding: 10px 15px;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #ffffff;
+}
+.btnAdd:hover{
+  background-color: #333;
+}
+.btnRemove{
+  position: absolute;
+  border: #000000;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #895c5c;
+  padding: 10px 15px;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #ffffff;
+}
+.btnRemove:hover{
+  background-color: #795858;
+}
+.card{
+  position: relative;
+  width: 200px;
+  background: #c0c0c0;
+  box-shadow:  0px 0px 0px #a3a3a3,
+             -0px -0px 0px #dddddd;
+  border: 1px solid #ccc;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: end;
+  padding: 12px 12px 45px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 12px;
+  color: #222;
+}
+.card:hover{
+background: #eee !important;
+color: #222;
+
 }
 
-.App-link {
-  color: #61dafb;
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -5px;
+  margin: auto;
+  width: 200px;
+  /* height: 264px; */
+  border-radius: 10px;
+  background: #c0c0c0;
+  box-shadow:  0px 0px 0px #a3a3a3,
+               -0px -0px 0px #dddddd;
+  /* background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%); */
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: #c0c0c0;
+  box-shadow:  0px 0px 0px #a3a3a3,
+               -0px -0px 0px #dddddd;
+  /* background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%); */
+  /* background: linear-gradient(-180deg, #ffffff 0%, #eee 100%); */
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.heading {
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.card p:not(.heading) {
+  font-size: 14px;
+}
+
+.card p:last-child {
+  color: #e81cff;
+  font-weight: 600;
+}
+
+.card:hover::after {
+  filter: blur(30px);
+}
+
+.card:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
 }
